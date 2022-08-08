@@ -1,0 +1,44 @@
+actor user
+
+participant browser
+participant server
+
+note over browser:
+User enters new data in the form input
+end note
+
+note over browser:
+User clicks submit button
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+note over server:
+access req.body
+end note
+note over server:
+create New note
+end note
+note over server:
+add new Note to Notes array
+end note
+
+server-->browser: URL redirect
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "OKAYYYY", date: "2022-08-08" }, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
