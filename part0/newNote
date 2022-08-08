@@ -3,11 +3,11 @@ actor user
 participant browser
 participant server
 
-note over browser:
+note over user:
 User enters new data in the form input
 end note
 
-note over browser:
+note over user:
 User clicks submit button
 end note
 
