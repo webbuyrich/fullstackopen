@@ -1,7 +1,8 @@
-const Hello = () =>{
+/* adding props to components */
+const Hello = (props) =>{
   return(
     <div>
-      <p>Hello World</p>
+      <p>Hello {props.name}</p>
     </div>
   )
 }
@@ -13,9 +14,9 @@ const App = () => {
     <div>
       <h1>Greeting</h1>
       {/* render the Hello component inside the App component */}
-      <Hello />
-      <Hello />
-      <Hello />
+      <Hello name="Richard"/>
+      <Hello name="Dee"/>
+      <Hello name="N/A"/>
     </div>
   )
 }
