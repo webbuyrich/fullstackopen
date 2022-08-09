@@ -1,8 +1,6 @@
-/* adding props to components */
-const Hello = (props) =>{
-  
-  const { name, age } = props
-  
+/* adding props to components, added variables to props location to use as props */
+const Hello = ({name, age}) =>{
+    
   /*Guessing the year of person being greeted */
   const bornYear = () =>  new Date().getFullYear() - age
  
