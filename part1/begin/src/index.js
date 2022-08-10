@@ -2,13 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
+let counter = 1
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const refresh = () => {
+    const root = ReactDOM.createRoot(document.getElementById('root')).render(
   
-    <App />
+    <App counter={counter} />
   
 );
+}
+setInterval(()=>{
+    refresh()
+    counter +=1
+}, 1000)
+
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
