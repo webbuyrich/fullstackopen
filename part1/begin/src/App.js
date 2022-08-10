@@ -1,21 +1,23 @@
-/* USING A STATEFUL COMPONENT */
+/* EVENT HANDLING */
 import { useState } from "react";
 
-const App = () =>{
-  /* making a funciton call. function useState will return an array with counter and setCounter variables */
-  const [ counter, setCounter ] = useState(0)
-  /*counter variable is assigned 0 */
-  /*setCounter variable is assigned to a function that will be used to modify the state */
-  setTimeout(
-    () => setCounter(counter + 1),
-    1000
-  )
+const App = () => {
 
-  console.log('rendering...', counter)
+  const [ counter, setCounter ] = useState(0)
+
+  const handleClick = () =>{
+    console.log('clicked')
+  }
 
   return(
-    <div>{counter}</div>
+    <div>
+      <div>{counter}</div>
+      <button onClick={handleClick}>
+        plus
+      </button>
+    </div>
   )
+  
 }
 
 export default App;
