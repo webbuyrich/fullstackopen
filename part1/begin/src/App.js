@@ -1,8 +1,14 @@
+/* USING A STATEFUL COMPONENT */
+import { useState } from "react";
 
+const App = () =>{
+  const [ counter, setCounter ] = useState(0)
 
-/* render multiple components inside a component */
-const App = (props) => {
-  const {counter} = props
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+  )
+
   return(
     <div>{counter}</div>
   )
