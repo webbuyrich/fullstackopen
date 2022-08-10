@@ -6,18 +6,10 @@ import { useState } from "react";
 const App = () => {  
 
   // Component to display value of the counter
-const Display = (props) =>{
-  return(
-    <div>{props.counter}</div>
-  )
-}
+const Display = ({ counter }) => <div>{counter}</div>
 
 // Button Component
-const Button = (props) =>{
-  return(
-    <button onClick={props.onClick}>{props.text}</button>
-  )
-}
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
 
   const [ counter, setCounter ] = useState(0)
 
