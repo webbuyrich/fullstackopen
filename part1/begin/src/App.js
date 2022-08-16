@@ -1,4 +1,4 @@
-/*EVENT HANDLING REVISTED */
+/* FUNCTION THAT RETURNS A FUNCTION */
 
 import { useState } from 'react'
 
@@ -6,15 +6,15 @@ import { useState } from 'react'
 const App = () =>{
     const [value, setValue] = useState(10)
 
-    const handleClick = () => {
-        console.log('clicked button')
-        setValue(0)
+    const hello = () => {
+        const handler = () => console.log('hello world')
+        return handler
     }
 
     return(
         <div>
             {value}
-            <button onClick={handleClick}>reset to zero</button>
+            <button onClick={hello()}>button</button>
         </div>
     )
 }
