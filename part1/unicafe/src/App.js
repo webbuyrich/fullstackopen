@@ -16,7 +16,7 @@ const Statistic = (props) =>{
 }
 
 const Statistics = ({ good, neutral, bad, all, average, positive}) => {
-  // test if all prop has a value
+  // test if all prop has a value. Unifafe 1.4 
   if(all === 0){
     // return message if true
     return(       
