@@ -3,7 +3,20 @@ import { useState } from "react";
 const MainHeading = (props) => <h1>{props.text}</h1>
 
 //buttons
-const Button = (props) => <button onClick={props.handleClick}>{props.text}</button>
+const ButtonFeed = (props) => {
+  return(
+    <button onClick={props.onClick}>{props.text}</button>
+  )
+}
+const Button = ({handleClickGood, handleClickNeutral, handleClickBad, text}) => {
+  return(
+    <div>
+      <ButtonFeed onClick={handleClickGood} text="good"/>
+      <ButtonFeed onClick={handleClickNeutral} text="neutral"/>
+      <ButtonFeed onClick={handleClickBad} text="bad"/>
+    </div>
+  )
+}
 
 //stats heading
 const StatsHeading = (props) => <h2>{props.text}</h2>
@@ -43,8 +56,8 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  const setToGood = (newValue) => {
-    setGood(newValue)
+  const setToGood = () => () =>{
+    setGood(good + 1)
   }
   const setToNeutral = (newValue) => {
     setNeutral(newValue)
@@ -56,9 +69,11 @@ const App = () => {
   return (
     <div>
       <MainHeading text="give feedback"/>
-      <Button handleClick={()=> setToGood(good + 1)} text="good" />
-      <Button handleClick={()=> setToNeutral(neutral + 1)} text="neutral" />
-      <Button handleClick={()=> setToBad(bad + 1)} text="bad" />
+      <Button 
+        handleClickGood={setToGood()}
+        handleClickNeutral={()=>setToNeutral(neutral + 1)}
+        handleClickBad={()=>setToBad(bad + 1)}
+        />
       <StatsHeading text="statistics" />
       <Statistics 
         good={good}
